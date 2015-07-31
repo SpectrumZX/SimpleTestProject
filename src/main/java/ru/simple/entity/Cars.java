@@ -13,7 +13,6 @@ import javax.persistence.Table;
 )
 public class Cars  implements java.io.Serializable {
 
-
      private Integer id;
      private String model;
      private Integer year;
@@ -22,7 +21,6 @@ public class Cars  implements java.io.Serializable {
 
     public Cars() {
     }
-
 	
     public Cars(String model) {
         this.model = model;
@@ -36,7 +34,6 @@ public class Cars  implements java.io.Serializable {
    
      @Id @GeneratedValue(strategy=IDENTITY)
 
-    
     @Column(name="id", unique=true, nullable=false)
     public Integer getId() {
         return this.id;
@@ -85,8 +82,6 @@ public class Cars  implements java.io.Serializable {
     public void setColor(String color) {
         this.color = color;
     }
-
-
 
 
 }

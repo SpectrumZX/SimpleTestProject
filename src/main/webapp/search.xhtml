@@ -8,17 +8,12 @@
         <title>Автомобили</title>
     </h:head>
     <h:body>
-
-
         <f:view>
             <h:form>
                 <h:inputText size="30" label="Заголовок" value="#{dataAccess.searchQuery}" required="true"/>
                 <h:commandButton value="Искать" action="search.xhtml"/>
-               <br/> <h:selectBooleanCheckbox value="#{dataAccess.wcards}">Расширенный поиск</h:selectBooleanCheckbox>
-           
-           </h:form>
-
-
+                <br/> <h:selectBooleanCheckbox value="#{dataAccess.wcards}">Расширенный поиск</h:selectBooleanCheckbox>
+            </h:form>
             <p/>
             <h:form>
                 <h2><h:outputText value="Результаты поиска"/></h2>
@@ -41,17 +36,17 @@
                         </f:facet>
                         <h:outputText value="#{item.year}"/>
                     </h:column>
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Цвет"/>
                         </f:facet>
-                         <h:outputText value="#{item.color}"/>
+                        <h:outputText value="#{item.color}"/>
                     </h:column>
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Цена"/>
                         </f:facet>
-                         <h:outputText value="#{item.price}"/>
+                        <h:outputText value="#{item.price}"/>
                     </h:column>
                     <h:column>
                         <h:commandLink action="#" value="Edit"/> 

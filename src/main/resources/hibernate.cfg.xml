@@ -11,5 +11,6 @@
     <property name="show_sql">true</property>
     <property name="hibernate.connection.characterEncoding">UTF-8</property>
     <mapping class="ru.simple.entity.Cars"/>
+    
   </session-factory>
 </hibernate-configuration>

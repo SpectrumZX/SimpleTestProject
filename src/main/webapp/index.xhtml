@@ -12,23 +12,20 @@
             <h:form>
                 <h:inputText size="30" label="Заголовок" value="#{dataAccess.searchQuery}" required="true"/>
                 <h:commandButton value="Искать" action="search.xhtml"/>
-               <br/> <h:selectBooleanCheckbox value="#{dataAccess.wcards}">Расширенный поиск</h:selectBooleanCheckbox>
+                <br/> <h:selectBooleanCheckbox value="#{dataAccess.wcards}">Расширенный поиск</h:selectBooleanCheckbox>
             </h:form>
             <p/>
             <h:form>
                 <h1><h:outputText value="Автомобили"/></h1>
                 <p/>
                 <h:selectOneMenu id="color" value="#{dataAccess.sort}" title="sort" onchange="submit()">
-                              <f:selectItem itemValue="by_year_asc" itemLabel="Сортировать по году (от старых к новым)" />
-                              <f:selectItem itemValue="by_year_desc" itemLabel="Сортировать по году (от новых к старым)" />
-                              <f:selectItem itemValue="by_price_asc" itemLabel="Сортировать по цене (дешевые сверху)" />
-                              <f:selectItem itemValue="by_price_desc" itemLabel="Сортировать по цене (дорогие сверху)" />
-                              <f:selectItem itemValue="by_id_asc" itemLabel="Сортировать по id (по возрастанию)" />
-                              <f:selectItem itemValue="by_id_desc" itemLabel="Сортировать по id (по убыванию)" />
-                            </h:selectOneMenu><p/>
-                            
-                            
-                            
+                    <f:selectItem itemValue="by_year_asc" itemLabel="Сортировать по году (от старых к новым)" />
+                    <f:selectItem itemValue="by_year_desc" itemLabel="Сортировать по году (от новых к старым)" />
+                    <f:selectItem itemValue="by_price_asc" itemLabel="Сортировать по цене (дешевые сверху)" />
+                    <f:selectItem itemValue="by_price_desc" itemLabel="Сортировать по цене (дорогие сверху)" />
+                    <f:selectItem itemValue="by_id_asc" itemLabel="Сортировать по id (по возрастанию)" />
+                    <f:selectItem itemValue="by_id_desc" itemLabel="Сортировать по id (по убыванию)" />
+                </h:selectOneMenu><p/>
                 <h:dataTable value="#{dataAccess.allCars}" var="item">
                     <h:column>
                         <f:facet name="header">
@@ -48,17 +45,17 @@
                         </f:facet>
                         <h:outputText value="#{item.year}"/>
                     </h:column>
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Цвет"/>
                         </f:facet>
-                         <h:outputText value="#{item.color}"/>
+                        <h:outputText value="#{item.color}"/>
                     </h:column>
-                     <h:column>
+                    <h:column>
                         <f:facet name="header">
                             <h:outputText value="Цена"/>
                         </f:facet>
-                         <h:outputText value="#{item.price} руб."/>
+                        <h:outputText value="#{item.price} руб."/>
                     </h:column>
                     <h:column>
                         <h:commandLink action="#{dataAccess.prepareEdit(item.id)}" value="Edit"/> 
@@ -67,8 +64,8 @@
                         <h:commandLink action="#{dataAccess.deleteCarById(item.id)}" value="Delete"/> 
                     </h:column>
                 </h:dataTable>
-                          <p/>  <h:outputLabel value="Всего записей #{dataAccess.getCount()}"/>
-                          <p/> <h:commandLink action="#{dataAccess.prepareNew()}" value="Добавить автомобиль"/>
+                <p/>  <h:outputLabel value="Всего записей #{dataAccess.getCount()}"/>
+                <p/> <h:commandLink action="#{dataAccess.prepareNew()}" value="Добавить автомобиль"/>
             </h:form>
         </f:view>
     </h:body>
