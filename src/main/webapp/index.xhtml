@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="./css/list.css"/>
+        <title>Автомобили</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:inputText size="30" label="Заголовок" value="#{dataAccess.searchQuery}" required="true"/>
+                <h:commandButton value="Искать" action="search.xhtml"/>
+               <br/> <h:selectBooleanCheckbox value="#{dataAccess.wcards}">Расширенный поиск</h:selectBooleanCheckbox>
+            </h:form>
+            <p/>
+            <h:form>
+                <h1><h:outputText value="Автомобили"/></h1>
+                <p/>
+                <h:selectOneMenu id="color" value="#{dataAccess.sort}" title="sort" onchange="submit()">
+                              <f:selectItem itemValue="by_year_asc" itemLabel="Сортировать по году (от старых к новым)" />
+                              <f:selectItem itemValue="by_year_desc" itemLabel="Сортировать по году (от новых к старым)" />
+                              <f:selectItem itemValue="by_price_asc" itemLabel="Сортировать по цене (дешевые сверху)" />
+                              <f:selectItem itemValue="by_price_desc" itemLabel="Сортировать по цене (дорогие сверху)" />
+                              <f:selectItem itemValue="by_id_asc" itemLabel="Сортировать по id (по возрастанию)" />
+                              <f:selectItem itemValue="by_id_desc" itemLabel="Сортировать по id (по убыванию)" />
+                            </h:selectOneMenu><p/>
+                            
+                            
+                            
+                <h:dataTable value="#{dataAccess.allCars}" var="item">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Модель"/>
+                        </f:facet>
+                        <h:outputText value="#{item.model}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Год"/>
+                        </f:facet>
+                        <h:outputText value="#{item.year}"/>
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Цвет"/>
+                        </f:facet>
+                         <h:outputText value="#{item.color}"/>
+                    </h:column>
+                     <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Цена"/>
+                        </f:facet>
+                         <h:outputText value="#{item.price} руб."/>
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{dataAccess.prepareEdit(item.id)}" value="Edit"/> 
+                    </h:column>
+                    <h:column>
+                        <h:commandLink action="#{dataAccess.deleteCarById(item.id)}" value="Delete"/> 
+                    </h:column>
+                </h:dataTable>
+                          <p/>  <h:outputLabel value="Всего записей #{dataAccess.getCount()}"/>
+                          <p/> <h:commandLink action="#{dataAccess.prepareNew()}" value="Добавить автомобиль"/>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="./css/form.css"/>
+        <title>Редактирование автомобиля</title>
+    </h:head>
+    <body>
+  
+                
+                <f:view>
+
+
+                    <h:form>
+                        <h2><h:outputText value="Создание/редактирование"/></h2>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Id:" for="id" />
+                            <h:outputLabel id="ds" value="#{dataAccess.currentCar.id}"/>
+                            <h:outputLabel value=""/>
+                            <h:outputLabel value=""/>
+                            <h:outputLabel value="Модель:" for="model" />
+                            <h:inputText id="model" value="#{dataAccess.currentCar.model}" title="Model" />
+                            <h:outputLabel value="Год:" for="year" />
+                            <h:inputText id="year" value="#{dataAccess.currentCar.year}" title="Year" />
+                            <h:outputLabel value="Цена (руб):" for="price" />
+                            <h:inputText id="price" value="#{dataAccess.currentCar.price}" title="Price" />
+                            Цвет:
+                            <h:selectOneMenu id="color" value="#{dataAccess.currentCar.color}" title="Color">
+                              <f:selectItem itemValue="Красный" itemLabel="Красный" />
+                              <f:selectItem itemValue="Синий" itemLabel="Синий" />
+                              <f:selectItem itemValue="Зеленый" itemLabel="Зеленый" />
+                              <f:selectItem itemValue="Серый" itemLabel="Серый" />
+                            </h:selectOneMenu>
+                          
+                        </h:panelGrid>
+                         <h:commandButton value="Сохранить" action="#{dataAccess.saveCar()}" />  
+                    </h:form>
+                </f:view>
+
+       <p/>  <h:link value="к списку автомобилей" outcome="index.xhtml" />
+       
+    </body>
+</html>

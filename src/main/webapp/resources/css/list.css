@@ -1,0 +1,27 @@
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000;
+    margin: 10px auto;
+    width: 800px; 
+   
+}
+
+table {
+  border: 1px solid #69c;
+}
+th {
+  font-weight: normal;
+  color: #039;
+  padding: 10px;
+}
+td {
+  color: #669;
+  border-top: 1px dashed #fff;
+  padding: 10px;
+  background:#ccddff;
+}
+tr:hover td {
+  background:#99bcff;
+}
